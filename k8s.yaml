@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: APP_NAME
+
+spec:
+  replicas: 
+  selector:
+    matchLabels:
+      app: APP_NAME
+  template:
+    metadata:
+      labels:
+        app: APP_NAME
+    spec:
+      containers:
+      - name: app
+        image: IMAGE_NAME:IMAGE_TAG
+        imagePullPolicy: IMAGE_PULL_POLICY
+        ports:
+        - containerPort: APP_PORT
+        resources:
+          requests:
+            cpu: RESOURCES_REQUESTS_CPU
+            memory: RESOURCES_REQUESTS_MEMORY
+          limits:
+            cpu: RESOURCES_LIMIT_CPU
+            memory: RESOURCES_LIMIT_MEMORY
